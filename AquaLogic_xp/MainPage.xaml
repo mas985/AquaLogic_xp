@@ -1,0 +1,139 @@
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="AquaLogic_xp.MainPage"
+            Title="AquaLogic PS8 (beta)"
+            WidthRequest="360" HeightRequest="640">
+    <!--BackgroundColor="#FFB9D1EA"
+            BarTextColor="Black"-->
+
+    <ContentPage Title="AquaLogic" Appearing="Main_Appeared">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            
+            <!--<Frame BackgroundColor="Transparent" Padding="0">
+            </Frame>-->
+            <Label x:Name="TextDisplay" FontAttributes="Bold" MaxLines="2" FontSize="24" HorizontalTextAlignment="Center"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="PlusBtn" Text="+" FontSize="36" Clicked="Button_Click" Grid.Row="0"/>
+                    <Button x:Name="MenuBtn" Text="Menu"  FontSize="24"  Clicked="Button_Click"  Grid.Row="1"/>
+                    <Button x:Name="MinusBtn" Text="-" FontSize="36" Clicked="Button_Click" Grid.Row="2"/>
+                </Grid>
+
+                <Button x:Name="LeftBtn" Text="&lt;" FontSize="36" Clicked="Button_Click" />
+                <Button x:Name="RightBtn" Text="&gt;" FontSize="36" Clicked="Button_Click" Grid.Column="2"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="Pool" Text="Pool" Clicked="Button_Click"/>
+                <Button x:Name="Spa" Text="Spa" Clicked="Button_Click" Grid.Row="1"/>
+                <Button x:Name="Spillover" Text="Spillover" Clicked="Button_Click" Grid.Row="2"/>
+                <Button x:Name="Filter" Text="Filter" Clicked="Button_Click" Grid.Row="3"/>
+                <Button x:Name="Lights" Text="Lights" Clicked="Button_Click" Grid.Row="4"/>
+                <Button x:Name="Heater1" Text="Heater1" Clicked="Button_Click" Grid.Row="5"/>
+
+                <Button x:Name="Valve3" BindingContext="{x:Reference Name=Valve3_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="6"/>
+                <Button x:Name="Valve4" BindingContext="{x:Reference Name=Valve4_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="6" Grid.Column="1"/>
+
+                <Button x:Name="Aux1" BindingContext="{x:Reference Name=Aux1_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Column="1"/>
+                <Button x:Name="Aux2" BindingContext="{x:Reference Name=Aux2_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="1" Grid.Column="1"/>
+                <Button x:Name="Aux3" BindingContext="{x:Reference Name=Aux3_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="2" Grid.Column="1"/>
+                <Button x:Name="Aux4" BindingContext="{x:Reference Name=Aux4_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="3" Grid.Column="1"/>
+                <Button x:Name="Aux5" BindingContext="{x:Reference Name=Aux5_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="4" Grid.Column="1"/>
+                <Button x:Name="Aux6" BindingContext="{x:Reference Name=Aux6_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="5" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+
+    </ContentPage>
+    
+    <ContentPage Title="Settings" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Entry x:Name="ipAddr" Text="10.0.0.230" Grid.Column="1" />
+                <Entry x:Name="portNum" Text="8899" Grid.Row="1" Grid.Column="1"/>
+
+                <Entry x:Name="Aux1_Edit" Text="Aux1" Grid.Column="1" Grid.Row="2"/>
+                <Entry x:Name="Aux2_Edit" Text="Aux2" Grid.Row="3" Grid.Column="1"/>
+                <Entry x:Name="Aux3_Edit" Text="Aux3" Grid.Row="4" Grid.Column="3"/>
+                <Entry x:Name="Aux4_Edit" Text="Aux4" Grid.Row="5" Grid.Column="1"/>
+                <Entry x:Name="Aux5_Edit" Text="Aux5" Grid.Row="6" Grid.Column="1"/>
+                <Entry x:Name="Aux6_Edit" Text="Aux6" Grid.Row="7" Grid.Column="1"/>
+                <Entry x:Name="Valve3_Edit" Text="Valve3" Grid.Row="8" Grid.Column="1"/>
+                <Entry x:Name="Valve4_Edit" Text="Valve4" Grid.Row="9" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Text="0" Grid.Row="10" Grid.Column="1" />
+
+                <Label x:Name="Label1" Text="IP Address:"/>
+                <Label x:Name="Label2" Text="Port Number:" Grid.Row="1"/>
+                <Label x:Name="Label3" Text="Aux1 Label:" Grid.Row="2"/>
+                <Label x:Name="Label4" Text="Aux2 Label:" Grid.Row="3"/>
+                <Label x:Name="Label5" Text="Aux3 Label:" Grid.Row="4"/>
+                <Label x:Name="Label6" Text="Aux4 Label:" Grid.Row="5"/>
+                <Label x:Name="Label7" Text="Aux5 Label:" Grid.Row="6"/>
+                <Label x:Name="Label8" Text="Aux6 Label:" Grid.Row="7"/>
+                <Label x:Name="Label9" Text="Valve3 Label:" Grid.Row="8"/>
+                <Label x:Name="Label10" Text="Valve4 Label:" Grid.Row="9"/>
+                <Label x:Name="Label11" Text="Log Interval:" Grid.Row="10"/>
+
+            </Grid>
+
+            <Button x:Name="Restart" Text="Restart" Clicked="Restart_Click" Grid.Row="1"/>
+
+        </Grid>
+
+    </ContentPage>
+
+</TabbedPage>
