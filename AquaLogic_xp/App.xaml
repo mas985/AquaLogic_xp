@@ -9,33 +9,29 @@
 
             <!--<Color x:Key="EntryColor">Ivory</Color>-->
 
-            <!--<Setter Property="TextColor" Value="Black" />
-            <Setter Property="BackgroundColor" Value="#FFB9D1EA" />-->
-            <!--<Setter Property="FontFamily" Value="OpenSansRegular" />-->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="Margin" Value="5" />
+                <Setter Property="TextColor" Value="Black" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
 
-            <!--<Setter Property="TextColor" Value="Black" />
-            <Setter Property="BackgroundColor" Value="Ivory" />-->
-            <!--<Setter Property="FontFamily" Value="OpenSansRegular" />-->
             <Style TargetType="Entry">
                 <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="Ivory" />
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
 
-            <!--<Setter Property="TextColor" Value="Black" />
-            <Setter Property="BackgroundColor" Value="Grey" />
-            <Setter Property="BorderColor" Value="Black" />-->
-            <!--<Setter Property="FontFamily" Value="OpenSansRegular" />-->
-            <Style TargetType="Button">
+            <!--<Setter Property="BorderColor" Value="Black" />-->
+             <Style TargetType="Button">
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="Grey" />
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="BorderWidth" Value="5" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
