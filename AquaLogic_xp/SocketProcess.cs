@@ -7,7 +7,7 @@ using System.Threading;
 using System.Net.NetworkInformation;
 using System.Net;
 
-namespace AquaLogic_xp
+namespace AquaLogic
 {
     class SocketProcess
     {
@@ -104,8 +104,8 @@ namespace AquaLogic_xp
 
         private bool _menu_locked;
 
-        private readonly TcpClient _tcpClient;
-        private readonly NetworkStream _netStream;
+        private TcpClient _tcpClient;
+        private NetworkStream _netStream;
 
         private const byte _FRAME_DLE = 0x10;
         private const byte _FRAME_STX = 0x02;
@@ -115,20 +115,24 @@ namespace AquaLogic_xp
         private const byte _WIRED_LOCAL_KEY_EVENT = 0x02;
         //private const byte _WIRED_REMOTE_KEY_EVENT = 0x03;
 
-        private long _cTick;
-        private long _lTick;
-        private int _airT;
-        private int _poolT = 0;
-
         public SocketProcess(string ipAddr, int portNum)
+        {
+            Reset(ipAddr, portNum);
+        }
+
+        public void Reset(string ipAddr, int portNum)
         {
             try
             {
+                if (_tcpClient != null && _tcpClient.Connected)
+                {
+                    _tcpClient.Close();
+                }
                 _tcpClient = new();
-                _tcpClient.Connect(ipAddr.Trim(), portNum);
                 _tcpClient.NoDelay = true;
                 _tcpClient.ReceiveTimeout = 5000;
                 _tcpClient.SendTimeout = 1000;
+                _tcpClient.Connect(ipAddr.Trim(), portNum);
                 _netStream = _tcpClient.GetStream();
             }
             catch (Exception e)
@@ -182,17 +186,20 @@ namespace AquaLogic_xp
         }
         public bool QueueKey(string key)
         {
-            if (_menu_locked && key == "RightBtn")
+            if (_tcpClient.Connected)
             {
-                SendKey("LRBtn");
-                return true;
+                if (_menu_locked && key == "RightBtn")
+                {
+                    SendKey("LRBtn");
+                    return true;
+                }
+                else
+                {
+                    SendKey(key);
+                    return false;
+                }
             }
-            else
-            {
-                SendKey(key);
-                Thread.Sleep(200);
-                return false;
-            }
+            return false;
         }
 
         private void SendKey(string key)
@@ -239,6 +246,12 @@ namespace AquaLogic_xp
             }
 
         }
+        private long _cTick;
+        private long _lTick;
+        private int _airT;
+        private int _poolT = 0;
+        private int _spaT = 0;
+
         public SocketData Update()
         {
             byte[] kaBytes = new byte[] { 0x10, 0x02, 0x01, 0x01, 0x00, 0x14, 0x10, 0x03 };
@@ -247,12 +260,9 @@ namespace AquaLogic_xp
 
             try
             {
-                int loop = 0;
-                while (_tcpClient.Available > 6)
+                List<byte> recData = new();
+                while (_tcpClient.Connected && _tcpClient.Available > 6)
                 {
-                    loop++;
-                    List<byte> recData = new();
-
                     byte pByte = 0;
                     byte aByte = 0;
                     recData.Clear();
@@ -318,11 +328,15 @@ namespace AquaLogic_xp
                                 if (socketData.DisplayText.Contains("Air Temp"))
                                 {
                                     _airT = GetTemp(socketData.DisplayText);
-                                    socketData.LogText = DateTime.Now.ToString() + "," + _airT.ToString() + "," + _poolT.ToString(); // Update only after air T
+                                    socketData.LogText = DateTime.Now.ToString() + "," + _airT.ToString() + "," + _poolT.ToString() + "," + _spaT.ToString(); // Update only after air T
                                 }
                                 else if (socketData.DisplayText.Contains("Pool Temp"))
                                 {
                                     _poolT = GetTemp(socketData.DisplayText);
+                                }
+                                else if (socketData.DisplayText.Contains("Spa Temp"))
+                                {
+                                    _spaT = GetTemp(socketData.DisplayText);
                                 }
                                 _menu_locked = socketData.DisplayText.Contains("Menu-Locked");
                             }
@@ -417,7 +431,7 @@ namespace AquaLogic_xp
         {
             if (!File.Exists(fPath))
             {
-                File.WriteAllText(fPath, "Time,Air T,Water T\n");
+                File.WriteAllText(fPath, "Time,Air T,Pool T,Spa T\n");
             }
             using StreamWriter file = new(fPath, append: true);
             file.WriteLine(line);

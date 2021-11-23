@@ -16,9 +16,8 @@
 		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>7</ApplicationVersion>
-		<VersionPrefix>1.0.3</VersionPrefix>
-		<Version>1.0.3.6</Version>
+		<ApplicationVersion>2</ApplicationVersion>
+		<VersionPrefix>1.0.0</VersionPrefix>
 
 		<!-- Required for C# Hot Reload -->
 		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
@@ -29,25 +28,22 @@
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
 		<TargetFramework>net6.0-windows</TargetFramework>
-		
 		<UseWPF>False</UseWPF>
 		<Authors>Mark Schulz</Authors>
+		<Version>1.0.3.5</Version>
 		<Company>MAS Consulting</Company>
 		<Product>AquaLogic PS8</Product>
-		<Description>AquaLogic PS8 Remote Emulator</Description>
-		<Copyright>MAS Consulting 2021</Copyright>
-		<PackageIcon>pool128.png</PackageIcon>
-		<ApplicationIcon>pool.ico</ApplicationIcon>
+		<Description>AquaLogic PS8 Emulator</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\wireless.svg" Color="Black" />
-		<!--<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="Black" />-->
+		<!--<MauiIcon Include="pool512.jpg" />-->
+		<!--<MauiIcon Include="Resources\appicon.svg" ForegroundFile="pool512.jpg" />-->
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\wireless.svg" Color="Black" />
-		<!--<MauiSplashScreen Include="Resources\appiconfg.svg" Color="Black" />-->
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -60,17 +56,6 @@
 		<!-- Required - WinUI does not yet have buildTransitive for everything -->
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0-preview3" />
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.29-preview3" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\appiconfg.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="pool128.png">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
