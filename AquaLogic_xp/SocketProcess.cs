@@ -106,12 +106,12 @@ namespace AquaLogic_xp
 
         private readonly TcpClient _tcpClient;
         private readonly NetworkStream _netStream;
- 
+
         private const byte _FRAME_DLE = 0x10;
         private const byte _FRAME_STX = 0x02;
         private const byte _FRAME_ETX = 0x03;
 
-       // private const byte _WIRELESS_KEY_EVENT = 0x83;
+        // private const byte _WIRELESS_KEY_EVENT = 0x83;
         private const byte _WIRED_LOCAL_KEY_EVENT = 0x02;
         //private const byte _WIRED_REMOTE_KEY_EVENT = 0x03;
 
@@ -180,9 +180,9 @@ namespace AquaLogic_xp
                 _ => 0,
             };
         }
-          public bool QueueKey(string key)
+        public bool QueueKey(string key)
         {
-             if (_menu_locked && key == "RightBtn")
+            if (_menu_locked && key == "RightBtn")
             {
                 SendKey("LRBtn");
                 return true;
@@ -240,19 +240,19 @@ namespace AquaLogic_xp
 
         }
         public SocketData Update()
-        { 
+        {
             byte[] kaBytes = new byte[] { 0x10, 0x02, 0x01, 0x01, 0x00, 0x14, 0x10, 0x03 };
             byte[] frBytes = new byte[] { 0x00, 0xe0, 0x00, 0xe6, 0x18, 0x1e, 0xe0 };
             SocketData socketData = new();
 
             try
             {
-                int loop=0;
+                int loop = 0;
                 while (_tcpClient.Available > 6)
                 {
                     loop++;
                     List<byte> recData = new();
-                   
+
                     byte pByte = 0;
                     byte aByte = 0;
                     recData.Clear();
@@ -277,7 +277,7 @@ namespace AquaLogic_xp
                         }
                     }
                     byte[] bytes = recData.ToArray();
-                    
+
                     //System.Diagnostics.Debug.WriteLine(string.Format("{0,10}    {1}  {2}", (_cTick - _lTick) / 10000, loop, BitConverter.ToString(bytes)));
 
                     // process segment
@@ -288,7 +288,7 @@ namespace AquaLogic_xp
                     }
                     else if (bytes.SequenceEqual(kaBytes))
                     {
-                         //System.Diagnostics.Debug.WriteLine(string.Format("{0,10}    {1}  {2}", (_cTick - _lTick) / 10000, loop, BitConverter.ToString(bytes)));
+                        //System.Diagnostics.Debug.WriteLine(string.Format("{0,10}    {1}  {2}", (_cTick - _lTick) / 10000, loop, BitConverter.ToString(bytes)));
                     }
                     else if (bytes.Length > 6)
                     {
@@ -325,7 +325,7 @@ namespace AquaLogic_xp
                                     _poolT = GetTemp(socketData.DisplayText);
                                 }
                                 _menu_locked = socketData.DisplayText.Contains("Menu-Locked");
-                             }
+                            }
                             else if (bytes[2] == 0x00 && bytes[3] == 0x02)
                             {
                                 //System.Diagnostics.Debug.WriteLine(string.Format("{0,10}    {1}  {2}", (_cTick - _lTick) / 10000, loop, BitConverter.ToString(bytes)));
@@ -337,7 +337,7 @@ namespace AquaLogic_xp
                         }
                         else
                         {
-                            System.Diagnostics.Debug.WriteLine(string.Format("{0}   {1}",  "CRC Error", BitConverter.ToString(bytes)));
+                            System.Diagnostics.Debug.WriteLine(string.Format("{0}   {1}", "CRC Error", BitConverter.ToString(bytes)));
                         }
                     }
                 }
@@ -363,11 +363,11 @@ namespace AquaLogic_xp
             string tStr = "";
             string bStr = "";
             int isplt = istr + slen / 2;
-             for (int i = istr; i < istr + slen - 1; i++)
+            for (int i = istr; i < istr + slen - 1; i++)
             {
                 if (bytes[i] == 0) { break; }
-                string cc =  bytes[i] < 128 ? Convert.ToChar(bytes[i]).ToString() : Convert.ToChar(bytes[i] - 128).ToString();
-                
+                string cc = bytes[i] < 128 ? Convert.ToChar(bytes[i]).ToString() : Convert.ToChar(bytes[i] - 128).ToString();
+
                 if (i < isplt)
                 {
                     tStr += cc.ToString();
@@ -387,10 +387,10 @@ namespace AquaLogic_xp
                     }
                     bStr += cc.ToString();
                 }
-             }
-             if (bStr.Contains('[') && !bStr.Contains(']')) { bStr += "]"; }
-             string str = tStr.Trim() + "\n" + bStr.Trim();
-             return str.Replace("_","°").Trim();
+            }
+            if (bStr.Contains('[') && !bStr.Contains(']')) { bStr += "]"; }
+            string str = tStr.Trim() + "\n" + bStr.Trim();
+            return str.Replace("_", "°").Trim();
         }
 
         public static long PingUART(string ipAddr)
@@ -417,7 +417,7 @@ namespace AquaLogic_xp
         {
             if (!File.Exists(fPath))
             {
-               File.WriteAllText(fPath, "Time,Air T,Water T\n");
+                File.WriteAllText(fPath, "Time,Air T,Water T\n");
             }
             using StreamWriter file = new(fPath, append: true);
             file.WriteLine(line);

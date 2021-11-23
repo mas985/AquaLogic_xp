@@ -24,6 +24,8 @@ namespace AquaLogic_xp
             SaveSettings();
         }
 
+        bool _cancelBW = false;
+
         private void Button_Click(object sender, EventArgs args)
         {
             Button button = (Button)sender;
@@ -59,6 +61,7 @@ namespace AquaLogic_xp
             Preferences.Set(Valve4_Edit.StyleId, Valve4_Edit.Text);
         }
 
+
         // Socket Control
 
         private SocketProcess _socketProcess;
@@ -72,6 +75,7 @@ namespace AquaLogic_xp
                 _socketProcess.QueueKey("Reset");
                 System.Threading.Thread.Sleep(100);
             }
+            _cancelBW = false;
             InitializeSocketProcess();
         }
 
@@ -85,6 +89,7 @@ namespace AquaLogic_xp
                 _cancelTimer = false;
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
                 {
+                    if (_cancelBW) { return false; }
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         SocketProcess.SocketData socketData = _socketProcess.Update();
@@ -120,6 +125,7 @@ namespace AquaLogic_xp
             if (socketData.DisplayText != null)
             {
                 TextDisplay.Text = socketData.DisplayText;
+
             }
 
             if (socketData.Status != 0)
