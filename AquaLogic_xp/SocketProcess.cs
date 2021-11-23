@@ -126,10 +126,11 @@ namespace AquaLogic_xp
             {
                 _tcpClient = new();
                 _tcpClient.Connect(ipAddr.Trim(), portNum);
-                _tcpClient.NoDelay = true;
-                _tcpClient.ReceiveTimeout = 5000;
-                _tcpClient.SendTimeout = 1000;
-                _netStream = _tcpClient.GetStream();
+                    _tcpClient.NoDelay = true;
+                    _tcpClient.ReceiveTimeout = 5000;
+                    _tcpClient.SendTimeout = 1000;
+                    _netStream = _tcpClient.GetStream();
+                }
             }
             catch (Exception e)
             {
@@ -362,6 +363,7 @@ namespace AquaLogic_xp
         {
             string tStr = "";
             string bStr = "";
+            string cc = " ";
             int isplt = istr + slen / 2;
              for (int i = istr; i < istr + slen - 1; i++)
             {
