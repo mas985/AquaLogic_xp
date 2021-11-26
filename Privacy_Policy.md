@@ -37,4 +37,4 @@ we reserve the right to update or change our Privacy Policy at any time and you 
 
 ## Contact Information
 
-For any questions or concerns regarding the privacy policy, please send us an email to masconsulting@outlook.com.
+For any questions or concerns regarding the privacy policy, please send us an email to info_masc@outlook.com@outlook.com.
