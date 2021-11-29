@@ -16,6 +16,7 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="AliceBlue" />
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="3" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
