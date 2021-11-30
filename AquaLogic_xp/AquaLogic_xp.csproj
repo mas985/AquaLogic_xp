@@ -16,7 +16,7 @@
 		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>7</ApplicationVersion>
+		<ApplicationVersion>8</ApplicationVersion>
 		<VersionPrefix>1.0.3</VersionPrefix>
 		<Version>1.0.3.6</Version>
 

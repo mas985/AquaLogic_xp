@@ -17,7 +17,7 @@ namespace AquaLogic_xp
 
             InitializeBackgroundWorker();
             App_Version.Text = "AquaLogic PS8 - " + VersionTracking.CurrentVersion.ToString() + 
-                " (" + VersionTracking.CurrentBuild.ToString() + ")";
+                " [" + VersionTracking.CurrentBuild.ToString() + "]";
         }
 
         protected void Main_Appeared(object sender, EventArgs e)

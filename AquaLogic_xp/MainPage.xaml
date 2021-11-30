@@ -33,13 +33,13 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Button x:Name="PlusBtn" Text="+" FontSize="36" Clicked="Button_Click" Grid.Row="0"/>
-                        <Button x:Name="MenuBtn" Text="Menu" FontSize="24" Clicked="Button_Click"  Grid.Row="1"/>
-                        <Button x:Name="MinusBtn" Text="-" FontSize="36" Clicked="Button_Click" Grid.Row="2"/>
+                        <Button x:Name="PlusBtn" Text="+" FontSize="40" Clicked="Button_Click" Grid.Row="0"/>
+                        <Button x:Name="MenuBtn" Text="Menu" FontSize="30" Clicked="Button_Click"  Grid.Row="1"/>
+                        <Button x:Name="MinusBtn" Text="-" FontSize="40" Clicked="Button_Click" Grid.Row="2"/>
                     </Grid>
 
-                    <Button x:Name="LeftBtn" Text="&lt;" FontSize="36" Clicked="Button_Click" />
-                    <Button x:Name="RightBtn" Text="&gt;" FontSize="36" Clicked="Button_Click" Grid.Column="2"/>
+                    <Button x:Name="LeftBtn" Text="&lt;" FontSize="40" Clicked="Button_Click" />
+                    <Button x:Name="RightBtn" Text="&gt;" FontSize="40" Clicked="Button_Click" Grid.Column="2"/>
                 </Grid>
 
                 <Grid Grid.Row="2">
