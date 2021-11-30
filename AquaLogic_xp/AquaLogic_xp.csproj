@@ -13,10 +13,10 @@
 		<ApplicationTitle>AquaLogic PS8</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
+		<ApplicationId>com.MAS_Consulting.AquaLogic_xp</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>9</ApplicationVersion>
+		<ApplicationVersion>10</ApplicationVersion>
 		<VersionPrefix>1.0.3</VersionPrefix>
 		<Version>1.0.3.6</Version>
 
