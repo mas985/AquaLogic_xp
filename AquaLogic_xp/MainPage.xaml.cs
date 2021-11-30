@@ -16,8 +16,10 @@ namespace AquaLogic_xp
             LoadSettings();
 
             InitializeBackgroundWorker();
-            App_Version.Text = "AquaLogic PS8 - " + VersionTracking.CurrentVersion.ToString() + 
-                " [" + VersionTracking.CurrentBuild.ToString() + "]";
+            
+            App_Version.Text = VersionTracking.CurrentVersion.ToString();
+
+           // App_Version.FontSize = nFont;
         }
 
         protected void Main_Appeared(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace AquaLogic_xp
             _ipAddr = ipAddr.Text;
             _portNum = Int32.Parse(portNum.Text);
             _resetSocket = true;
-            tabbedPage.CurrentPage = tabbedPage.Children[0];
+            TabPage.CurrentPage = TabPage.Children[0];
             //tabControl.SelectedIndex--;
         }
         public void LoadSettings()
@@ -161,15 +163,9 @@ namespace AquaLogic_xp
                         vCnt = 0;
                         _backgroundWorker.ReportProgress(vCnt, socketData);
                     }
-                    else if (vCnt == 50)
+                    else if (vCnt == 100)
                     {
                         _backgroundWorker.ReportProgress(vCnt, socketData);
-                    }
-                    else if (vCnt == 300 || !socketProcess.Connected)
-                    {
-                        vCnt = 0;
-                        socketProcess.Reset(_ipAddr, _portNum);
-                        Thread.Sleep(200);
                     }
                     else if (_resetSocket)
                     {

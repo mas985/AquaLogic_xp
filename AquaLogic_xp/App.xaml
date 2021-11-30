@@ -13,7 +13,7 @@
             <!--<Color x:Key="MainColor">PowderBlue</Color>-->
 
             <Style TargetType="Label">
-                <Setter Property="TextColor" Value="AliceBlue" />
+                <Setter Property="TextColor" Value="LightGray" />
                 <Setter Property="BackgroundColor" Value="Black" />
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="FontAttributes" Value="Bold" />
@@ -23,8 +23,8 @@
             </Style>
 
             <Style TargetType="Entry">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="BackgroundColor" Value="DimGray" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="Margin" Value="3" />
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
@@ -33,7 +33,7 @@
 
              <Style TargetType="Button">
                 <Setter Property="TextColor" Value="Black" />
-                <Setter Property="BackgroundColor" Value="AliceBlue" />
+                <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="3" />
