@@ -84,7 +84,7 @@ namespace AquaLogic
             public States Status { get; set; }
             public States Blink { get; set; }
             public string LogText { get; set; }
-            public bool Valid { get; set; }
+            public bool HasData { get; set; }
         }
 
         public bool Connected
@@ -319,12 +319,12 @@ namespace AquaLogic
                             {
                                 socketData.Status = (States)BitConverter.ToInt32(bytes, 4);
                                 socketData.Blink = (States)BitConverter.ToInt32(bytes, 8);
-                                socketData.Valid = true;
+                                socketData.HasData = true;
                             }
                             else if (bytes[2] == 0x01 && bytes[3] == 0x03) // Display
                             {
                                 socketData.DisplayText = Byte2string(bytes, 4, bytes.Length - 9);
-                                socketData.Valid = true;
+                                socketData.HasData = true;
                                 if (socketData.DisplayText.Contains("Air Temp"))
                                 {
                                     _airT = GetTemp(socketData.DisplayText);

@@ -145,7 +145,7 @@ namespace AquaLogic_xp
         {
             int vCnt = 0;
             SocketProcess socketProcess = new(_ipAddr, _portNum);
-            Thread.Sleep(200);
+            Thread.Sleep(250);
             while (true)
             {
                 if (_key != "")
@@ -155,10 +155,9 @@ namespace AquaLogic_xp
                 }
                 else
                 {
-                    Thread.Sleep(100);
                     SocketProcess.SocketData socketData = socketProcess.Update();
 
-                    if (socketData.Valid)
+                    if (socketData.HasData)
                     {
                         vCnt = 0;
                         _backgroundWorker.ReportProgress(vCnt, socketData);
@@ -171,11 +170,12 @@ namespace AquaLogic_xp
                     {
                         _resetSocket = false;
                         socketProcess.QueueKey("Reset");
-                        Thread.Sleep(200);
+                        Thread.Sleep(250);
                         socketProcess.Reset(_ipAddr, _portNum);
-                        Thread.Sleep(200);
+                        Thread.Sleep(250);
                     }
                     vCnt++;
+                    Thread.Sleep(100);
                 }
             }
         }
@@ -183,7 +183,7 @@ namespace AquaLogic_xp
             ProgressChangedEventArgs e)
         {
             SocketProcess.SocketData socketData = (SocketProcess.SocketData)e.UserState;
-            if (socketData.Valid)
+            if (socketData.HasData)
             {
                 TextDisplay.FontAttributes = FontAttributes.Bold;
                 UpdateDisplay(socketData);
