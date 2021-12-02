@@ -8,7 +8,7 @@
             UnselectedTabColor="Gray"
             SelectedTabColor="LightGray">
 
-    <ContentPage Title="AquaLogic" BackgroundColor="Black" Appearing="Main_Appeared">
+    <ContentPage Title="AquaLogic" BackgroundColor="Black" Appearing="OnTabSelected">
         <ScrollView>
             <Grid Margin="10" MaximumHeightRequest="700">
                 <Grid.RowDefinitions>
