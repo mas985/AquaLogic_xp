@@ -16,8 +16,8 @@
 		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
 
 		<!-- Versions -->
-		<Version>1.0.4.14</Version>
-		<ApplicationVersion>14</ApplicationVersion>
+		<Version>1.0.4.15</Version>
+		<ApplicationVersion>15</ApplicationVersion>
 
 		<!-- Required for C# Hot Reload -->
 		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>

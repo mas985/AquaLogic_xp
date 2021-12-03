@@ -3,6 +3,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System;
 using System.ComponentModel;
+using System.Net;
 using System.Threading;
 
 namespace AquaLogic_xp
@@ -19,19 +20,25 @@ namespace AquaLogic_xp
             
             App_Version.Text = VersionTracking.CurrentVersion.ToString();
 
-           // App_Version.FontSize = nFont;
         }
 
-        string _ipAddr;
+        string _ipAddr = "8.8.8.8";
         int _portNum;
         int _logInt;
         bool _resetSocket = false;
         private void GetParms()
         {
-            _ipAddr = ipAddr.Text;
-            _ = int.TryParse(portNum.Text, out int pNum);
-            if (pNum > 0) { _portNum = pNum; }
-            portNum.Text = _portNum.ToString();
+            if (IPAddress.TryParse(IPaddr.Text, out IPAddress ipAddress))
+            {
+                _ipAddr = ipAddress.ToString();
+            } else { IPaddr.Text = _ipAddr; }
+          
+            
+            if (int.TryParse(PortNum.Text, out int pNum))
+            {
+                _portNum = pNum;
+            } else { PortNum.Text = _portNum.ToString(); }
+            
             _ = int.TryParse(LogInt.Text, out _logInt);
             LogInt.Text = _logInt.ToString();
         }
@@ -40,14 +47,13 @@ namespace AquaLogic_xp
             GetParms();
             SaveSettings();
         }
-
-        private void Restart_Click(object sender, EventArgs args)
+        protected void Restart_Click(object sender, EventArgs args)
         {
             TabPage.CurrentPage = TabPage.Children[0];
             _resetSocket = true;
         }
         string _key = "";
-        private void Button_Click(object sender, EventArgs args)
+        protected void Button_Click(object sender, EventArgs args)
         {
             Button button = (Button)sender;
             _key = button.StyleId;

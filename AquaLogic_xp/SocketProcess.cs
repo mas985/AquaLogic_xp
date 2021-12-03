@@ -124,16 +124,19 @@ namespace AquaLogic
         {
             try
             {
-                if (_tcpClient != null && _tcpClient.Connected)
+                if (IPAddress.TryParse(ipAddr, out IPAddress ipAddress) && portNum > 0)
                 {
-                    _tcpClient.Close();
+                    if (_tcpClient != null && _tcpClient.Connected)
+                    {
+                        _tcpClient.Close();
+                    }
+                    _tcpClient = new();
+                    _tcpClient.NoDelay = true;
+                    _tcpClient.ReceiveTimeout = 5000;
+                    _tcpClient.SendTimeout = 1000;
+                    _tcpClient.Connect(ipAddr.Trim(), portNum);
+                    _netStream = _tcpClient.GetStream();
                 }
-                _tcpClient = new();
-                _tcpClient.NoDelay = true;
-                _tcpClient.ReceiveTimeout = 5000;
-                _tcpClient.SendTimeout = 1000;
-                _tcpClient.Connect(ipAddr.Trim(), portNum);
-                _netStream = _tcpClient.GetStream();
             }
             catch (Exception e)
             {

@@ -10,14 +10,14 @@
 
     <ContentPage Title="AquaLogic" BackgroundColor="Black" Appearing="OnTabSelected">
         <ScrollView>
-            <Grid Margin="10" MaximumHeightRequest="700">
+            <Grid Margin="10" VerticalOptions="Start" HeightRequest="696">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="7*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="TextDisplay" FontSize="30" HorizontalTextAlignment="Center"/>
+                <Label x:Name="TextDisplay" MinimumHeightRequest="96" FontSize="30" HorizontalTextAlignment="Center"/>
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -78,10 +78,10 @@
         </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Settings" BackgroundColor="Black">
+    <ContentPage Title="Labels" BackgroundColor="Black">
         <ScrollView>
-            <Grid Margin="10" MaximumHeightRequest="700">
- 
+            <Grid Margin="10" VerticalOptions="Start" HeightRequest="464">
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -95,6 +95,38 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Label3" Text="Aux1 Label:" Grid.Row="0"/>
+                <Label x:Name="Label4" Text="Aux2 Label:" Grid.Row="1"/>
+                <Label x:Name="Label5" Text="Aux3 Label:" Grid.Row="2"/>
+                <Label x:Name="Label6" Text="Aux4 Label:" Grid.Row="3"/>
+                <Label x:Name="Label7" Text="Aux5 Label:" Grid.Row="4"/>
+                <Label x:Name="Label8" Text="Aux6 Label:" Grid.Row="5"/>
+                <Label x:Name="Label9" Text="Valve3 Label:" Grid.Row="6"/>
+                <Label x:Name="Label10" Text="Valve4 Label:" Grid.Row="7"/>
+
+                <Entry x:Name="Aux1_Edit" Text="Aux1" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="Aux2_Edit" Text="Aux2" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="Aux3_Edit" Text="Aux3" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="Aux4_Edit" Text="Aux4" Grid.Row="3" Grid.Column="1"/>
+                <Entry x:Name="Aux5_Edit" Text="Aux5" Grid.Row="4" Grid.Column="1"/>
+                <Entry x:Name="Aux6_Edit" Text="Aux6" Grid.Row="5" Grid.Column="1"/>
+                <Entry x:Name="Valve3_Edit" Text="Valve3" Grid.Row="6" Grid.Column="1"/>
+                <Entry x:Name="Valve4_Edit" Text="Valve4" Grid.Row="7" Grid.Column="1"/>
+             </Grid>
+        </ScrollView>
+    </ContentPage>
+    
+    <ContentPage Title="Settings" BackgroundColor="Black">
+        <ScrollView>
+            <Grid Margin="10" VerticalOptions="Start" HeightRequest="290">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -105,36 +137,15 @@
                 <Label x:Name="Label0" Text="Version:" Grid.Row="0"/>
                 <Label x:Name="Label1" Text="IP Address:" Grid.Row="1"/>
                 <Label x:Name="Label2" Text="Port Number:" Grid.Row="2"/>
-                <Label x:Name="Label3" Text="Aux1 Label:" Grid.Row="3"/>
-                <Label x:Name="Label4" Text="Aux2 Label:" Grid.Row="4"/>
-                <Label x:Name="Label5" Text="Aux3 Label:" Grid.Row="5"/>
-                <Label x:Name="Label6" Text="Aux4 Label:" Grid.Row="6"/>
-                <Label x:Name="Label7" Text="Aux5 Label:" Grid.Row="7"/>
-                <Label x:Name="Label8" Text="Aux6 Label:" Grid.Row="8"/>
-                <Label x:Name="Label9" Text="Valve3 Label:" Grid.Row="9"/>
-                <Label x:Name="Label10" Text="Valve4 Label:" Grid.Row="10"/>
-                <Label x:Name="Label11" Text="Log Interval:" Grid.Row="11"/>
-                <Label x:Name="Label12" Text="Connection:" Grid.Row="12"/>
-                
+                <Label x:Name="Label11" Text="Log Interval:" Grid.Row="3"/>
+                <Label x:Name="Label12" Text="Connection:" Grid.Row="4"/>
+
                 <Label x:Name="App_Version" Text="0.0.0.0" Grid.Row="0" Grid.Column="1"/>
-                <Entry x:Name="ipAddr" Text="10.0.0.230" Grid.Row="1" Grid.Column="1" />
-                <Entry x:Name="portNum" Text="8899" Grid.Row="2" Grid.Column="1"/>
-
-                <Entry x:Name="Aux1_Edit" Text="Aux1" Grid.Row="3" Grid.Column="1" />
-                <Entry x:Name="Aux2_Edit" Text="Aux2" Grid.Row="4" Grid.Column="1"/>
-                <Entry x:Name="Aux3_Edit" Text="Aux3" Grid.Row="5" Grid.Column="1"/>
-                <Entry x:Name="Aux4_Edit" Text="Aux4" Grid.Row="6" Grid.Column="1"/>
-                <Entry x:Name="Aux5_Edit" Text="Aux5" Grid.Row="7" Grid.Column="1"/>
-                <Entry x:Name="Aux6_Edit" Text="Aux6" Grid.Row="8" Grid.Column="1"/>
-                <Entry x:Name="Valve3_Edit" Text="Valve3" Grid.Row="9" Grid.Column="1"/>
-                <Entry x:Name="Valve4_Edit" Text="Valve4" Grid.Row="10" Grid.Column="1"/>
-                <Entry x:Name="LogInt" Text="0" Grid.Row="11" Grid.Column="1" />
-                <Button x:Name="Restart" Text="Restart" Clicked="Restart_Click" Grid.Row="12" Grid.Column="1"/>
-
+                <Entry x:Name="IPaddr" Text="10.0.0.230" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="PortNum" Text="8899" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Text="0" Grid.Row="3" Grid.Column="1"/>
+                <Button x:Name="Restart" Text="Restart" Clicked="Restart_Click" Grid.Row="4" Grid.Column="1"/>
             </Grid>
-
-
         </ScrollView>
     </ContentPage>
-
 </TabbedPage>
