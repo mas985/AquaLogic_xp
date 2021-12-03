@@ -151,6 +151,7 @@ namespace AquaLogic_xp
         {
             int vCnt = 0;
             bool holdKey = false;
+
             SocketProcess socketProcess = new(_ipAddr, _portNum);
             Thread.Sleep(250);
             while (true)

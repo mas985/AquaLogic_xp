@@ -15,30 +15,38 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="LightGray" />
                 <Setter Property="BackgroundColor" Value="Black" />
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontSize" Value="24" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="Margin" Value="3" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="5" />
+                <!--<Setter Property="MinimumHeightRequest" Value="38" />
+                <Setter Property="MinimumWidthRequest" Value="86" />-->
+                <!--<Setter Property="HorizontalOptions" Value="FillAndExpand" />-->
+                <!--<Setter Property="VerticalOptions" Value="FillAndExpand" />-->
+                <!--<Setter Property="VerticalTextAlignment" Value="Center" />-->
             </Style>
 
             <Style TargetType="Entry">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="LightGray" />
-                <Setter Property="FontSize" Value="Large" />
-                <Setter Property="Margin" Value="3" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="5" />
+                <!--<Setter Property="MinimumHeightRequest" Value="38" />
+                <Setter Property="MinimumWidthRequest" Value="86" />-->
+                <!--<Setter Property="HorizontalOptions" Value="FillAndExpand" />-->
+                <!--<Setter Property="VerticalOptions" Value="FillAndExpand" />-->
+                <!--<Setter Property="VerticalTextAlignment" Value="Center" />-->
             </Style>
 
              <Style TargetType="Button">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="LightGray" />
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontSize" Value="24" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="Margin" Value="3" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="5" />
+                <!--<Setter Property="MinimumHeightRequest" Value="38" />
+                <Setter Property="MinimumWidthRequest" Value="86" />-->
+                <!--<Setter Property="HorizontalOptions" Value="FillAndExpand" />-->
+                <!--<Setter Property="VerticalOptions" Value="FillAndExpand" />-->
             </Style>
 
         </ResourceDictionary>

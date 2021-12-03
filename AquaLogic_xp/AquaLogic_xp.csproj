@@ -16,8 +16,8 @@
 		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
 
 		<!-- Versions -->
-		<Version>1.0.4.13</Version>
-		<ApplicationVersion>13</ApplicationVersion>
+		<Version>1.0.4.14</Version>
+		<ApplicationVersion>14</ApplicationVersion>
 
 		<!-- Required for C# Hot Reload -->
 		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
@@ -37,6 +37,13 @@
 		<Copyright>MAS Consulting 2021</Copyright>
 		<PackageIcon>pool128.png</PackageIcon>
 		<ApplicationIcon>pool.ico</ApplicationIcon>
+		<EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+	
+		<!--<AotAssemblies>true</AotAssemblies>-->
+		<!--<EnableLLVM>true</EnableLLVM>-->
+		<!--<AndroidEnablePreloadAssemblies>true</AndroidEnablePreloadAssemblies>-->
+		<!--<AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>--> 
+		<!--<AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>-->
 	</PropertyGroup>
 
 	<ItemGroup>
