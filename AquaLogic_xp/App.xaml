@@ -17,18 +17,14 @@
                 <Setter Property="BackgroundColor" Value="Black" />
                 <Setter Property="FontSize" Value="24" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <!--<Setter Property="MinimumHeightRequest" Value="48" />
-                <Setter Property="MaximumHeightRequest" Value="48" />-->
-                <Setter Property="Margin" Value="5" />
+              <Setter Property="Margin" Value="5" />
             </Style>
 
             <Style TargetType="Entry">
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="20" />
-                <!--<Setter Property="MinimumHeightRequest" Value="48" />-->
-                <Setter Property="MaximumHeightRequest" Value="48" />
-                <Setter Property="Margin" Value="5" />
+                 <Setter Property="Margin" Value="5" />
             </Style>
 
             <Style TargetType="Button">
@@ -36,8 +32,6 @@
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="24" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <!--<Setter Property="MinimumHeightRequest" Value="48" />
-                <Setter Property="MaximumHeightRequest" Value="48" />-->
                 <Setter Property="Margin" Value="5" />
             </Style>
         </ResourceDictionary>
