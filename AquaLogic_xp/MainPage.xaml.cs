@@ -22,7 +22,7 @@ namespace AquaLogic_xp
 
         }
 
-        string _ipAddr = "8.8.8.8";
+        string _ipAddr;
         int _portNum;
         int _logInt;
         bool _resetSocket = false;
@@ -42,10 +42,14 @@ namespace AquaLogic_xp
             _ = int.TryParse(LogInt.Text, out _logInt);
             LogInt.Text = _logInt.ToString();
         }
-        protected void OnTabSelected(object sender, EventArgs e)
+        protected void OnDisappearing(object sender, EventArgs e)
         {
             GetParms();
             SaveSettings();
+        }
+        protected void OnUnfocused(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
         }
         protected void Restart_Click(object sender, EventArgs args)
         {
