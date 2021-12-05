@@ -24,7 +24,6 @@ namespace AquaLogic_xp
         string _ipAddr;
         int _portNum;
         int _logInt;
-        bool _resetSocket = false;
         private void GetParms()
         {
             if (IPAddress.TryParse(IPaddr.Text, out IPAddress ipAddress))
@@ -50,12 +49,12 @@ namespace AquaLogic_xp
         {
             System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
         }
-        protected void Restart_Click(object sender, EventArgs args)
+        string _key = "";
+        protected void Reset_Click(object sender, EventArgs args)
         {
             TabPage.CurrentPage = TabPage.Children[0];
-            _resetSocket = true;
+            _key = "Reset";
         }
-        string _key = "";
         protected void Button_Click(object sender, EventArgs args)
         {
             Button button = (Button)sender;
@@ -156,19 +155,18 @@ namespace AquaLogic_xp
             _backgroundWorker.RunWorkerAsync();
         }
         private void BackgroundWorker_DoWork(object sender,
-            DoWorkEventArgs e)
+             DoWorkEventArgs e)
         {
-            int vCnt = 0;
-            bool holdKey = false;
-
             SocketProcess socketProcess = new(_ipAddr, _portNum);
             Thread.Sleep(250);
+            DateTime lTime = DateTime.Now;
             while (true)
             {
-                if (_key != "")
+                if (!socketProcess.Connected || DateTime.Now.Subtract(lTime).Seconds > 5)
                 {
-                    holdKey = socketProcess.QueueKey(_key);
-                    _key = "";
+                    socketProcess.Reset(_ipAddr, _portNum);
+                    Thread.Sleep(250);
+                    lTime = DateTime.Now;
                 }
                 else
                 {
@@ -176,48 +174,37 @@ namespace AquaLogic_xp
 
                     if (socketData.HasData)
                     {
-                        vCnt = 0;
-                        _backgroundWorker.ReportProgress(vCnt, socketData);
+                        _backgroundWorker.ReportProgress(0, socketData);
+                        lTime = DateTime.Now;
                     }
-                    else if (vCnt == 100)
+
+                    if (_key != "")
                     {
-                        _backgroundWorker.ReportProgress(vCnt, socketData);
-                    }
-                    else if (_resetSocket || !socketProcess.Connected)
-                    {
-                        _resetSocket = false;
-                        if (socketProcess.Connected)
+                        if (socketProcess.QueueKey(_key))
                         {
-                            socketProcess.QueueKey("Reset");
-                            Thread.Sleep(250);
+                            socketData.HasData = true;
+                            socketData.DisplayText = "Please Wait...";
+                            _backgroundWorker.ReportProgress(0, socketData);
                         }
-                        socketProcess.Reset(_ipAddr, _portNum);
-                        Thread.Sleep(250);
+                        else if (_key == "Reset")
+                        {
+                            socketData.HasData = true;
+                            socketData.DisplayText = "Connection Reset...";
+                            _backgroundWorker.ReportProgress(0, socketData);
+                        }
+                        _key = "";
                     }
-                    else if (holdKey)
-                    {
-                        socketData.HasData = true;
-                        socketData.DisplayText = "Please Wait...";
-                        holdKey = false;
-                        _backgroundWorker.ReportProgress(vCnt, socketData);
-                    }
-                    vCnt++;
                     Thread.Sleep(100);
                 }
             }
         }
-         private void BackgroundWorker_ProgressChanged(object sender,
+        private void BackgroundWorker_ProgressChanged(object sender,
             ProgressChangedEventArgs e)
         {
             SocketProcess.SocketData socketData = (SocketProcess.SocketData)e.UserState;
             if (socketData.HasData)
             {
-                TextDisplay.FontAttributes = FontAttributes.Bold;
                 UpdateDisplay(socketData);
-            }
-            else
-            {
-                TextDisplay.FontAttributes = FontAttributes.Italic;
             }
         }
         private void BackgroundWorker_RunWorkerCompleted(

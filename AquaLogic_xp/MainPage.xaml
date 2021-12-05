@@ -120,7 +120,7 @@
 
     <ContentPage Title="Settings" BackgroundColor="Black" Disappearing="OnDisappearing_Tab">
         <ScrollView>
-            <Grid Margin="10" VerticalOptions="Start" HeightRequest="360">
+            <Grid Margin="10" VerticalOptions="Start" HeightRequest="420">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -133,20 +133,23 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="Label0" Text="Version:" Grid.Row="0"/>
-                <Label x:Name="Label1" Text="IP Address:" Grid.Row="1"/>
-                <Label x:Name="Label2" Text="Port Number:" Grid.Row="2"/>
-                <Label x:Name="Label11" Text="Log Interval:" Grid.Row="3"/>
-                <Label x:Name="Label12" Grid.Row="4"/>
-                <Label x:Name="Label13" Text="Connection:" Grid.Row="5"/>
+                <Label x:Name="Label1" Text="IP Address:" Grid.Row="0"/>
+                <Label x:Name="Label2" Text="Port Number:" Grid.Row="1"/>
+                <Label x:Name="Label11" Text="Log Interval:" Grid.Row="2"/>
+                <Label x:Name="Label12" Grid.Row="3"/>
+                <Label x:Name="Label13" Text="Connection:" Grid.Row="4"/>
+                <Label x:Name="Label14" Grid.Row="5"/>
+                <Label x:Name="Label15" Text="Version:" Grid.Row="6"/>
 
-                <Label x:Name="App_Version" Text="0.0.0.0" Grid.Row="0" Grid.Column="1"/>
-                <Entry x:Name="IPaddr" Text="10.0.0.230" Grid.Row="1" Grid.Column="1"/>
-                <Entry x:Name="PortNum" Text="8899" Grid.Row="2" Grid.Column="1"/>
-                <Entry x:Name="LogInt" Text="0" Unfocused="OnUnfocused_Entry" Grid.Row="3" Grid.Column="1"/>
-                <Button x:Name="Restart" Text="Restart" Clicked="Restart_Click" Grid.Row="5" Grid.Column="1"/>
+
+                <Entry x:Name="IPaddr" Text="10.0.0.230" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="PortNum" Text="8899" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Text="0" Unfocused="OnUnfocused_Entry" Grid.Row="2" Grid.Column="1"/>
+                <Button x:Name="Reset" Text="Restart" Clicked="Reset_Click" Grid.Row="4" Grid.Column="1"/>
+                <Label x:Name="App_Version" Text="0.0.0.0" Grid.Row="6" Grid.Column="1"/>            
             </Grid>
          </ScrollView>
     </ContentPage>
