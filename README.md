@@ -1,6 +1,6 @@
 # AquaLogic_xp
 
-AquaLogic PS8 Emulator
+AquaLogic PS8 Remote Emulator
 
 A Visual Studio cross platform project for the emulation of the PS8 remote. This software is designed to work specifically with this device:
 - https://www.amazon.com/Serial-Wireless-Networking-Embedded-Support/dp/B08GLS8LN1
