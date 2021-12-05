@@ -10,7 +10,7 @@ namespace AquaLogic_xp
 {
     public partial class MainPage : TabbedPage
 	{
-		public MainPage()
+        public MainPage()
 		{
             InitializeComponent();
 
@@ -19,7 +19,6 @@ namespace AquaLogic_xp
             InitializeBackgroundWorker();
             
             App_Version.Text = VersionTracking.CurrentVersion.ToString();
-
         }
 
         string _ipAddr;
@@ -42,12 +41,12 @@ namespace AquaLogic_xp
             _ = int.TryParse(LogInt.Text, out _logInt);
             LogInt.Text = _logInt.ToString();
         }
-        protected void OnDisappearing(object sender, EventArgs e)
+        protected void OnDisappearing_Tab(object sender, EventArgs e)
         {
             GetParms();
             SaveSettings();
         }
-        protected void OnUnfocused(object sender, EventArgs e)
+        protected void OnUnfocused_Entry(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
         }
