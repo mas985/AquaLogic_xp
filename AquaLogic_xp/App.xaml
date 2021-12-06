@@ -18,7 +18,7 @@
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="Margin" Value="5" />
+                <Setter Property="Margin" Value="5"/>
             </Style>
 
             <Style TargetType="Entry">
@@ -26,8 +26,8 @@
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="Margin" Value="5" />
+                <Setter Property="MinimumHeightRequest" Value="50" />
+                <Setter Property="Margin" Value="5"/>
             </Style>
 
             <Style TargetType="Button">
@@ -35,7 +35,8 @@
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="Margin" Value="5" />
+                <Setter Property="MinimumHeightRequest" Value="50" />
+                <Setter Property="Margin" Value="5"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
