@@ -157,14 +157,13 @@ namespace AquaLogic_xp
         private void BackgroundWorker_DoWork(object sender,
              DoWorkEventArgs e)
         {
-            SocketProcess socketProcess = new(_ipAddr, _portNum);
-            Thread.Sleep(250);
+            SocketProcess socketProcess = new();
             DateTime lTime = DateTime.Now;
             while (true)
             {
                 if (!socketProcess.Connected || DateTime.Now.Subtract(lTime).Seconds > 5)
                 {
-                    socketProcess.Reset(_ipAddr, _portNum);
+                    socketProcess.Connect(_ipAddr, _portNum);
                     Thread.Sleep(250);
                     lTime = DateTime.Now;
                 }
@@ -189,7 +188,7 @@ namespace AquaLogic_xp
                         else if (_key == "Reset")
                         {
                             socketData.HasData = true;
-                            socketData.DisplayText = "Connection Reset...";
+                            socketData.DisplayText = "Remote Device Reset...";
                             _backgroundWorker.ReportProgress(0, socketData);
                         }
                         _key = "";

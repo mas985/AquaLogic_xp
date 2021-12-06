@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.IO;
-using System.Threading;
 using System.Net.NetworkInformation;
 using System.Net;
 
@@ -89,23 +88,12 @@ namespace AquaLogic
 
         public bool Connected
         {
-            get
-            {
-                if (_tcpClient != null)
-                {
-                    return _tcpClient.Connected;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            get { return _tcpClient.Connected; }
         }
 
         private bool _menu_locked;
 
-        private TcpClient _tcpClient;
-        private NetworkStream _netStream;
+        private TcpClient _tcpClient = new();
 
         private const byte _FRAME_DLE = 0x10;
         private const byte _FRAME_STX = 0x02;
@@ -115,27 +103,22 @@ namespace AquaLogic
         private const byte _WIRED_LOCAL_KEY_EVENT = 0x02;
         //private const byte _WIRED_REMOTE_KEY_EVENT = 0x03;
 
-        public SocketProcess(string ipAddr, int portNum)
-        {
-            Reset(ipAddr, portNum);
-        }
+        //public SocketProcess()
+        //{
+        //}
 
-        public void Reset(string ipAddr, int portNum)
+        public void Connect(string ipAddr, int portNum)
         {
             try
             {
                 if (IPAddress.TryParse(ipAddr, out IPAddress ipAddress) && portNum > 0)
                 {
-                    if (_tcpClient != null && _tcpClient.Connected)
-                    {
-                        _tcpClient.Close();
-                    }
+                    _tcpClient.Close();
                     _tcpClient = new();
                     _tcpClient.NoDelay = true;
                     _tcpClient.ReceiveTimeout = 5000;
                     _tcpClient.SendTimeout = 1000;
                     _tcpClient.Connect(ipAddr.Trim(), portNum);
-                    _netStream = _tcpClient.GetStream();
                 }
             }
             catch (Exception e)
@@ -144,11 +127,10 @@ namespace AquaLogic
             }
         }
 
-        public void Close()
-        {
-            _netStream.Close();
-            _tcpClient.Close();
-        }
+        //public void Close()
+        //{
+        //    _tcpClient.Close();
+        //}
 
         public static Keys GetKey(string key)
         {
@@ -209,7 +191,7 @@ namespace AquaLogic
         {
             try
             {
-                if (_netStream != null)
+                if (_tcpClient.Connected)
                 {
                     List<byte> queData = new();
 
@@ -240,7 +222,7 @@ namespace AquaLogic
 
                     // Send key
 
-                    _netStream.Write(queData.ToArray(), 0, queData.Count);
+                    _tcpClient.GetStream().Write(queData.ToArray(), 0, queData.Count);
                 }
             }
             catch (Exception e)
@@ -277,7 +259,7 @@ namespace AquaLogic
                     while (_tcpClient.Available > 0)
                     {
                         pByte = aByte;
-                        aByte = (byte)_netStream.ReadByte();
+                        aByte = (byte)_tcpClient.GetStream().ReadByte();
 
                         if (aByte != 0x00 || pByte != 0x10)
                         {
