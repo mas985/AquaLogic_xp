@@ -17,7 +17,7 @@
                     <RowDefinition Height="420"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="TextDisplay" MinimumHeightRequest="80" FontSize="30" HorizontalTextAlignment="Center"/>
+                <Label x:Name="TextDisplay" FontSize="30" HorizontalTextAlignment="Center"/>
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -143,7 +143,6 @@
                 <Label x:Name="Label13" Text="Connection:" Grid.Row="4"/>
                 <Label x:Name="Label14" Grid.Row="5"/>
                 <Label x:Name="Label15" Text="Version:" Grid.Row="6"/>
-
 
                 <Entry x:Name="IPaddr" Text="10.0.0.230" Grid.Row="0" Grid.Column="1"/>
                 <Entry x:Name="PortNum" Text="8899" Grid.Row="1" Grid.Column="1"/>
