@@ -123,7 +123,7 @@ namespace AquaLogic
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine(e.Message);
+                System.Diagnostics.Debug.WriteLine("Socket Connect: " + e.Message);
             }
         }
 
@@ -231,12 +231,12 @@ namespace AquaLogic
             }
 
         }
-        private long _cTick;
-        private long _lTick;
-        private int _airT;
-        private int _poolT = 0;
-        private int _spaT = 0;
 
+        //private long _cTick;
+        //private long _lTick;
+        private int _airT;
+        private int _poolT = -9999;
+        private int _spaT = -9999;
         public SocketData Update()
         {
             byte[] kaBytes = new byte[] { 0x10, 0x02, 0x01, 0x01, 0x00, 0x14, 0x10, 0x03 };
@@ -254,8 +254,8 @@ namespace AquaLogic
 
                     // read segment
 
-                    _lTick = _cTick;
-                    _cTick = DateTime.Now.Ticks;
+                    //_lTick = _cTick;
+                    //_cTick = DateTime.Now.Ticks;
                     while (_tcpClient.Available > 0)
                     {
                         pByte = aByte;

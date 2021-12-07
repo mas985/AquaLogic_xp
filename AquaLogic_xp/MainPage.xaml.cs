@@ -157,15 +157,18 @@ namespace AquaLogic_xp
         private void BackgroundWorker_DoWork(object sender,
              DoWorkEventArgs e)
         {
+            const int toff = 5;
             SocketProcess socketProcess = new();
-            DateTime lTime = DateTime.Now;
-            while (true)
+            DateTime nTime = DateTime.Now.AddSeconds(toff);
+            while (!_backgroundWorker.CancellationPending)
             {
-                if (!socketProcess.Connected || DateTime.Now.Subtract(lTime).Seconds > 5)
+                Thread.Sleep(100);
+
+                if (!socketProcess.Connected || DateTime.Now > nTime)
                 {
+                    System.Diagnostics.Debug.WriteLine(string.Format("{0:HH:mm:ss} {1:HH:mm:ss} {2} {3}", DateTime.Now, nTime, socketProcess.Connected, "Reset Socket"));  ;
                     socketProcess.Connect(_ipAddr, _portNum);
-                    Thread.Sleep(250);
-                    lTime = DateTime.Now;
+                    nTime = DateTime.Now.AddSeconds(toff);
                 }
                 else
                 {
@@ -174,7 +177,8 @@ namespace AquaLogic_xp
                     if (socketData.HasData)
                     {
                         _backgroundWorker.ReportProgress(0, socketData);
-                        lTime = DateTime.Now;
+                        nTime = DateTime.Now.AddSeconds(toff);
+                        //System.Diagnostics.Debug.WriteLine(string.Format("{0:HH:mm:ss} {1}", nTime, "Read Data"));
                     }
 
                     if (_key != "")
@@ -187,13 +191,13 @@ namespace AquaLogic_xp
                         }
                         else if (_key == "Reset")
                         {
+                            System.Diagnostics.Debug.WriteLine(string.Format("{0} {1}", DateTime.Now, "Reset Device"));
                             socketData.HasData = true;
                             socketData.DisplayText = "Remote Device Reset...";
                             _backgroundWorker.ReportProgress(0, socketData);
                         }
                         _key = "";
                     }
-                    Thread.Sleep(100);
                 }
             }
         }

@@ -144,9 +144,9 @@
                 <Label x:Name="Label14" Grid.Row="5"/>
                 <Label x:Name="Label15" Text="Version:" Grid.Row="6"/>
 
-                <Entry x:Name="IPaddr" Text="10.0.0.230" Grid.Row="0" Grid.Column="1"/>
-                <Entry x:Name="PortNum" Text="8899" Grid.Row="1" Grid.Column="1"/>
-                <Entry x:Name="LogInt" Text="0" Unfocused="OnUnfocused_Entry" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="IPaddr" Text="10.0.0.230" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="PortNum" Text="8899" Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Text="0" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
                 <Button x:Name="Reset" Text="Restart" Clicked="Reset_Click" Grid.Row="4" Grid.Column="1"/>
                 <Label x:Name="App_Version" Text="0.0.0.0" Grid.Row="6" Grid.Column="1"/>            
             </Grid>
