@@ -13,11 +13,12 @@
 		<ApplicationTitle>AquaLogic PS8</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>
+		<!--<ApplicationId>com.companyname.AquaLogic_xp</ApplicationId>-->
+		<ApplicationId>com.mas_consulting.aql_ps8_rem</ApplicationId>
 
 		<!-- Versions -->
-		<Version>1.0.4.18</Version>
-		<ApplicationVersion>18</ApplicationVersion>
+		<Version>1.0.5.20</Version>
+		<ApplicationVersion>20</ApplicationVersion>
 
 		<!-- Required for C# Hot Reload -->
 		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
