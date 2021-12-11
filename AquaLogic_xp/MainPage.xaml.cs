@@ -40,10 +40,13 @@ namespace AquaLogic_xp
             _ = int.TryParse(LogInt.Text, out _logInt);
             LogInt.Text = _logInt.ToString();
         }
-        protected void OnDisappearing_Tab(object sender, EventArgs e)
+        protected void OnDisappearing_Labels(object sender, EventArgs e)
+        {
+            SaveSettings();
+        }
+        protected void OnDisappearing_Settings(object sender, EventArgs e)
         {
             GetParms();
-            SaveSettings();
         }
         protected void OnUnfocused_Entry(object sender, EventArgs e)
         {
@@ -71,6 +74,9 @@ namespace AquaLogic_xp
             Aux6_Edit.Text = Preferences.Get(Aux6_Edit.StyleId, "Aux6");
             Valve3_Edit.Text = Preferences.Get(Valve3_Edit.StyleId, "Valve3");
             Valve4_Edit.Text = Preferences.Get(Valve4_Edit.StyleId, "Valve4");
+
+            IPaddr.Text = Preferences.Get(IPaddr.StyleId, "10.0.0.230");
+            PortNum.Text = Preferences.Get(PortNum.StyleId, "8899");
         }
         public void SaveSettings()
         {
@@ -82,8 +88,11 @@ namespace AquaLogic_xp
             Preferences.Set(Aux6_Edit.StyleId, Aux6_Edit.Text);
             Preferences.Set(Valve3_Edit.StyleId, Valve3_Edit.Text);
             Preferences.Set(Valve4_Edit.StyleId, Valve4_Edit.Text);
+
+            Preferences.Set(IPaddr.StyleId, IPaddr.Text);
+            Preferences.Set(PortNum.StyleId, PortNum.Text);
         }
-        
+
         // UI Update
 
         private readonly string _logPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AquaLogic.csv");

@@ -78,7 +78,7 @@
         </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Labels" BackgroundColor="Black">
+    <ContentPage Title="Labels" BackgroundColor="Black" Disappearing="OnDisappearing_Labels">
         <ScrollView>
             <Grid Margin="10" VerticalOptions="Start" HeightRequest="480">
 
@@ -118,7 +118,7 @@
         </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Settings" BackgroundColor="Black" Disappearing="OnDisappearing_Tab">
+    <ContentPage Title="Settings" BackgroundColor="Black" Disappearing="OnDisappearing_Settings">
         <ScrollView>
             <Grid Margin="10" VerticalOptions="Start" HeightRequest="420">
 
