@@ -24,14 +24,13 @@ namespace AquaLogic_xp
         string _ipAddr;
         int _portNum;
         int _logInt;
-        private void GetParms()
+        private void GetSettings()
         {
             if (IPAddress.TryParse(IPaddr.Text, out IPAddress ipAddress))
             {
                 _ipAddr = ipAddress.ToString();
             } else { IPaddr.Text = _ipAddr; }
           
-            
             if (int.TryParse(PortNum.Text, out int pNum))
             {
                 _portNum = pNum;
@@ -40,16 +39,18 @@ namespace AquaLogic_xp
             _ = int.TryParse(LogInt.Text, out _logInt);
             LogInt.Text = _logInt.ToString();
         }
-        protected void OnDisappearing_Labels(object sender, EventArgs e)
+        protected void OnDisappearing_Settings(object sender, EventArgs e)
+        {
+            GetSettings();
+        }
+        protected void OnTabAppearing(object sender, EventArgs e)
         {
             SaveSettings();
         }
-        protected void OnDisappearing_Settings(object sender, EventArgs e)
-        {
-            GetParms();
-        }
         protected void OnUnfocused_Entry(object sender, EventArgs e)
         {
+            Entry entry= (Entry)sender;
+            if (!entry.StyleClass.Contains("_Edit")) { GetSettings(); }
             System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
         }
         string _key = "";
@@ -77,6 +78,8 @@ namespace AquaLogic_xp
 
             IPaddr.Text = Preferences.Get(IPaddr.StyleId, "10.0.0.230");
             PortNum.Text = Preferences.Get(PortNum.StyleId, "8899");
+
+            GetSettings();
         }
         public void SaveSettings()
         {
@@ -134,7 +137,6 @@ namespace AquaLogic_xp
             {
                 System.Diagnostics.Debug.WriteLine(e.Message);
             }
-
         }
         private static void SetStatus(Button button, SocketProcess.States status, SocketProcess.States blink, SocketProcess.States state)
         {
@@ -148,8 +150,6 @@ namespace AquaLogic_xp
         private void InitializeBackgroundWorker()
         {
             TextDisplay.Text = "Connecting...";
-
-            GetParms();
 
             _backgroundWorker.WorkerReportsProgress = true;
             _backgroundWorker.WorkerSupportsCancellation = true;
