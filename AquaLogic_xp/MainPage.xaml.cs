@@ -21,6 +21,8 @@ namespace AquaLogic_xp
             InitializeBackgroundWorker();
         }
 
+        public string Valve3_Text { get; set; }
+
         string _ipAddr;
         int _portNum;
         int _logInt;

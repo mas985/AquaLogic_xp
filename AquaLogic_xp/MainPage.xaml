@@ -64,15 +64,15 @@
                     <Button x:Name="Lights" Text="Lights" Clicked="Button_Click" Grid.Row="4"/>
                     <Button x:Name="Heater1" Text="Heater1" Clicked="Button_Click" Grid.Row="5"/>
 
-                    <Button x:Name="Valve3" BindingContext="{x:Reference Name=Valve3_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="6"/>
-                    <Button x:Name="Valve4" BindingContext="{x:Reference Name=Valve4_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="6" Grid.Column="1"/>
+                    <Button x:Name="Valve3" Text="{Binding Text, Source={x:Reference Valve3_Edit}}" Clicked="Button_Click" Grid.Row="6"/>
+                    <Button x:Name="Valve4" Text="{Binding Text, Source={x:Reference Valve4_Edit}}" Clicked="Button_Click" Grid.Row="6" Grid.Column="1"/>
 
-                    <Button x:Name="Aux1" BindingContext="{x:Reference Name=Aux1_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Column="1"/>
-                    <Button x:Name="Aux2" BindingContext="{x:Reference Name=Aux2_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="1" Grid.Column="1"/>
-                    <Button x:Name="Aux3" BindingContext="{x:Reference Name=Aux3_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="2" Grid.Column="1"/>
-                    <Button x:Name="Aux4" BindingContext="{x:Reference Name=Aux4_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="3" Grid.Column="1"/>
-                    <Button x:Name="Aux5" BindingContext="{x:Reference Name=Aux5_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="4" Grid.Column="1"/>
-                    <Button x:Name="Aux6" BindingContext="{x:Reference Name=Aux6_Edit}" Text="{Binding Path=Text}" Clicked="Button_Click" Grid.Row="5" Grid.Column="1"/>
+                    <Button x:Name="Aux1" Text="{Binding Text, Source={x:Reference Aux1_Edit}}" Clicked="Button_Click" Grid.Column="1"/>
+                    <Button x:Name="Aux2" Text="{Binding Text, Source={x:Reference Aux2_Edit}}" Clicked="Button_Click" Grid.Row="1" Grid.Column="1"/>
+                    <Button x:Name="Aux3" Text="{Binding Text, Source={x:Reference Aux3_Edit}}" Clicked="Button_Click" Grid.Row="2" Grid.Column="1"/>
+                    <Button x:Name="Aux4" Text="{Binding Text, Source={x:Reference Aux4_Edit}}" Clicked="Button_Click" Grid.Row="3" Grid.Column="1"/>
+                    <Button x:Name="Aux5" Text="{Binding Text, Source={x:Reference Aux5_Edit}}" Clicked="Button_Click" Grid.Row="4" Grid.Column="1"/>
+                    <Button x:Name="Aux6" Text="{Binding Text, Source={x:Reference Aux6_Edit}}" Clicked="Button_Click" Grid.Row="5" Grid.Column="1"/>
                  </Grid>
             </Grid>
         </ScrollView>
@@ -106,14 +106,14 @@
                 <Label x:Name="Label9" Text="Valve3 Label:" Grid.Row="6"/>
                 <Label x:Name="Label10" Text="Valve4 Label:" Grid.Row="7"/>
 
-                <Entry x:Name="Aux1_Edit" Text="Aux1" Grid.Row="0" Grid.Column="1"/>
-                <Entry x:Name="Aux2_Edit" Text="Aux2" Grid.Row="1" Grid.Column="1"/>
-                <Entry x:Name="Aux3_Edit" Text="Aux3" Grid.Row="2" Grid.Column="1"/>
-                <Entry x:Name="Aux4_Edit" Text="Aux4" Grid.Row="3" Grid.Column="1"/>
-                <Entry x:Name="Aux5_Edit" Text="Aux5" Grid.Row="4" Grid.Column="1"/>
-                <Entry x:Name="Aux6_Edit" Text="Aux6" Grid.Row="5" Grid.Column="1"/>
-                <Entry x:Name="Valve3_Edit" Text="Valve3" Grid.Row="6" Grid.Column="1"/>
-                <Entry x:Name="Valve4_Edit" Text="Valve4" Grid.Row="7" Grid.Column="1"/>
+                <Entry x:Name="Aux1_Edit" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="Aux2_Edit" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="Aux3_Edit" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="Aux4_Edit" Grid.Row="3" Grid.Column="1"/>
+                <Entry x:Name="Aux5_Edit" Grid.Row="4" Grid.Column="1"/>
+                <Entry x:Name="Aux6_Edit" Grid.Row="5" Grid.Column="1"/>
+                <Entry x:Name="Valve3_Edit" Grid.Row="6" Grid.Column="1"/>
+                <Entry x:Name="Valve4_Edit" Grid.Row="7" Grid.Column="1"/>
              </Grid>
         </ScrollView>
     </ContentPage>
@@ -138,13 +138,13 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="Label0" Text="IP Address:" Grid.Row="0"/>
-                <Entry x:Name="IPaddr" Text="10.0.0.230" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="IPaddr" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"/>
 
                 <Label x:Name="Label1" Text="Port Number:" Grid.Row="1"/>
-                <Entry x:Name="PortNum" Text="8899" Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="PortNum"  Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
  
                 <Label x:Name="Label2" Text="Log Interval:" Grid.Row="2"/>
-                <Entry x:Name="LogInt" Text="0" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
                 
                 <Label x:Name="Label13" Grid.Row="3"/>
                 <Label x:Name="Label14" Grid.Row="4"/>
