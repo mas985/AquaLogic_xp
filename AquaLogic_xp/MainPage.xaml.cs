@@ -14,11 +14,11 @@ namespace AquaLogic_xp
 		{
             InitializeComponent();
 
+            App_Version.Text = VersionTracking.CurrentVersion.ToString();
+
             LoadSettings();
 
             InitializeBackgroundWorker();
-            
-            App_Version.Text = VersionTracking.CurrentVersion.ToString();
         }
 
         string _ipAddr;
@@ -47,12 +47,12 @@ namespace AquaLogic_xp
         {
             SaveSettings();
         }
-        protected void OnUnfocused_Entry(object sender, EventArgs e)
-        {
-            Entry entry= (Entry)sender;
-            if (!entry.StyleClass.Contains("_Edit")) { GetSettings(); }
-            System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
-        }
+        //protected void OnUnfocused_Entry(object sender, EventArgs e)
+        //{
+        //    Entry entry= (Entry)sender;
+        //    if (!entry.StyleClass.Contains("_Edit")) { GetSettings(); }
+        //    System.Diagnostics.Debug.WriteLine("Unfocused Event"); // Not Triggered
+        //}
         string _key = "";
         protected void Reset_Click(object sender, EventArgs args)
         {
