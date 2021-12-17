@@ -202,9 +202,9 @@ namespace AquaLogic_xp
                         }
                         else if (_key == "Reset")
                         {
-                            System.Diagnostics.Debug.WriteLine(string.Format("{0} {1}", DateTime.Now, "Reset Device"));
+                            System.Diagnostics.Debug.WriteLine(string.Format("{0} {1}", DateTime.Now, "Restart Device"));
                             socketData.HasData = true;
-                            socketData.DisplayText = "Remote Device Reset...";
+                            socketData.DisplayText = "Restart Remote Device...";
                             _backgroundWorker.ReportProgress(0, socketData);
                         }
                         _key = "";
