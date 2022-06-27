@@ -33,9 +33,9 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Button x:Name="PlusBtn" Text="+" FontSize="40" Clicked="Button_Click" Grid.Row="0"/>
+                        <Button x:Name="PlusBtn" Text="+" FontSize="30" Clicked="Button_Click" Grid.Row="0"/>
                         <Button x:Name="MenuBtn" Text="Menu" Clicked="Button_Click"  Grid.Row="1"/>
-                        <Button x:Name="MinusBtn" Text="-" FontSize="40" Clicked="Button_Click" Grid.Row="2"/>
+                        <Button x:Name="MinusBtn" Text="-" FontSize="30" Clicked="Button_Click" Grid.Row="2"/>
                     </Grid>
 
                     <Button x:Name="LeftBtn" Text="&lt;" FontSize="40" Clicked="Button_Click" />
@@ -78,7 +78,7 @@
         </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Labels" BackgroundColor="Black">
+    <ContentPage Title="Labels" BackgroundColor="Black" Disappearing="OnDisappearing_Labels">
         <ScrollView>
             <Grid Margin="10" VerticalOptions="Start" HeightRequest="480">
 
@@ -120,7 +120,7 @@
 
     <ContentPage Title="Settings" BackgroundColor="Black" Disappearing="OnDisappearing_Settings">
         <ScrollView>
-            <Grid Margin="10" VerticalOptions="Start" HeightRequest="480">
+            <Grid Margin="10" VerticalOptions="Start" HeightRequest="600">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -135,10 +135,12 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <Label x:Name="Label10" Text="IP Address:" Grid.Row="0"/>
-                <Entry x:Name="IPaddr" Keyboard="Numeric" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="IPaddr" Grid.Row="0" Grid.Column="1"/>
 
                 <Label x:Name="Label11" Text="Port Number:" Grid.Row="1"/>
                 <Entry x:Name="PortNum"  Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
@@ -146,14 +148,23 @@
                 <Label x:Name="Label12" Text="Log Interval:" Grid.Row="2"/>
                 <Entry x:Name="LogInt" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
 
+                <Label x:Name="Label13" Text="" Grid.Row="3"/>
+
                 <Label x:Name="Label14" Text="Service Mode:" Grid.Row="4"/>
                 <Button x:Name="Service" Text="Service" Clicked="Button_Click" Grid.Row="4" Grid.Column="1"/>
 
+                <Label x:Name="Label15" Text="" Grid.Row="5"/>
+                
                 <Label x:Name="Label16" Text="Remote Device:" Grid.Row="6"/>
                 <Button x:Name="Reset" Text="Reset" Clicked="Button_Click" Grid.Row="6" Grid.Column="1"/>
 
-                <Label x:Name="Label17" Text="Version:" Grid.Row="7"/>
-                <Label x:Name="App_Version" Text="0.0.0.0" HorizontalTextAlignment="Center" Grid.Row="7" Grid.Column="1"/>            
+                <Label x:Name="Label17" Text="" Grid.Row="7"/>
+                
+                <Label x:Name="Label18" Text="Version:" Grid.Row="8"/>
+                <Label x:Name="App_Version" Text="0.0.0.0" HorizontalTextAlignment="Center" Grid.Row="8" Grid.Column="1"/>
+
+                <Label x:Name="Label19" Text="Developer:" Grid.Row="9"/>
+                <Label x:Name="Developer" Text="MAS Consulting" HorizontalTextAlignment="Center" Grid.Row="9" Grid.Column="1"/>
             </Grid>
          </ScrollView>
     </ContentPage>

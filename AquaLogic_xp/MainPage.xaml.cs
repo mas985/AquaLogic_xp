@@ -1,6 +1,7 @@
 ﻿using AquaLogic;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Storage;
 using System;
 using System.ComponentModel;
 using System.Net;
@@ -44,10 +45,14 @@ namespace AquaLogic_xp
         protected void OnDisappearing_Settings(object sender, EventArgs e)
         {
             GetSettings();
+            SaveSettings();
+        }
+        protected void OnDisappearing_Labels(object sender, EventArgs e)
+        {
+            SaveSettings();
         }
         protected void OnTabAppearing(object sender, EventArgs e)
         {
-            SaveSettings();
         }
         //protected void OnUnfocused_Entry(object sender, EventArgs e)
         //{
@@ -62,6 +67,7 @@ namespace AquaLogic_xp
             _key = button.StyleId;
             if (_key == "Reset")
             {
+                TextDisplay.Text = "Remote Device Reset...";
                 TabPage.CurrentPage = TabPage.Children[0];
             }
         }
