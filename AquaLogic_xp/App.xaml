@@ -18,6 +18,7 @@
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="MinimumHeightRequest" Value="50" />
                 <Setter Property="Margin" Value="5"/>
             </Style>
 
@@ -26,7 +27,7 @@
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
-                <Setter Property="MinimumHeightRequest" Value="60" />
+                <Setter Property="MinimumHeightRequest" Value="50" />
                 <Setter Property="Margin" Value="5"/>
             </Style>
 
@@ -35,7 +36,8 @@
                 <Setter Property="BackgroundColor" Value="LightGray" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="MinimumHeightRequest" Value="60" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="MinimumHeightRequest" Value="50" />
                 <Setter Property="Margin" Value="5"/>
             </Style>
         </ResourceDictionary>
