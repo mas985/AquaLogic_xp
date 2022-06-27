@@ -16,8 +16,8 @@
 		<ApplicationId>com.mas_consulting.aql_ps8_rem</ApplicationId>
 
 		<!-- Versions -->
-		<Version>1.1.0.23</Version>
-		<ApplicationVersion>23</ApplicationVersion>
+		<Version>1.1.0.24</Version>
+		<ApplicationVersion>24</ApplicationVersion>
 
 		<!-- Required for C# Hot Reload -->
 		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
