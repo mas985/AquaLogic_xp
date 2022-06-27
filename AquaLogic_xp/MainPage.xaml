@@ -17,7 +17,7 @@
                     <RowDefinition Height="420"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="TextDisplay" FontSize="30" HeightRequest="90" HorizontalTextAlignment="Center"/>
+                <Label x:Name="TextDisplay" FontSize="30" MinimumHeightRequest="90" HorizontalTextAlignment="Center"/>
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -38,8 +38,8 @@
                         <Button x:Name="MinusBtn" Text="-" FontSize="30" Clicked="Button_Click" Grid.Row="2"/>
                     </Grid>
 
-                    <Button x:Name="LeftBtn" Text="&lt;" FontSize="40" Clicked="Button_Click" />
-                    <Button x:Name="RightBtn" Text="&gt;" FontSize="40" Clicked="Button_Click" Grid.Column="2"/>
+                    <Button x:Name="LeftBtn" Text="&lt;" FontSize="40" MinimumHeightRequest="170" Clicked="Button_Click" />
+                    <Button x:Name="RightBtn" Text="&gt;" FontSize="40" MinimumHeightRequest="170" Clicked="Button_Click" Grid.Column="2"/>
                 </Grid>
 
                 <Grid Grid.Row="2">
@@ -140,13 +140,13 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name="Label10" Text="IP Address:" Grid.Row="0"/>
-                <Entry x:Name="IPaddr" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="IPaddr" Text="192.168.0.15" Grid.Row="0" Grid.Column="1"/>
 
                 <Label x:Name="Label11" Text="Port Number:" Grid.Row="1"/>
-                <Entry x:Name="PortNum"  Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="PortNum" Text="8899" Keyboard="Numeric" Grid.Row="1" Grid.Column="1"/>
  
                 <Label x:Name="Label12" Text="Log Interval:" Grid.Row="2"/>
-                <Entry x:Name="LogInt" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
+                <Entry x:Name="LogInt" Text="0" Keyboard="Numeric" Grid.Row="2" Grid.Column="1"/>
 
                 <Label x:Name="Label13" Text="" Grid.Row="3"/>
 
